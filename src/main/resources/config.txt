@@ -1,0 +1,3 @@
+Happiness#Citrus zest,10
+Calming#Lavender,5
+Relaxation#Bergamotte,1
