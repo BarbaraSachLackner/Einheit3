@@ -34,7 +34,7 @@ public class Configuration {
     }
 
     /**
-     * Loads configuration from a a fixed path (src/main/resources/config.txt) and creates the cashe
+     * Loads configuration from a a fixed path (src/main/resources/config.txt) and creates the cache
      *
      * @throws IOException IOException
      */
