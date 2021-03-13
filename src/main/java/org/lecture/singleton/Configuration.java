@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.time.LocalTime;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Singleton to represent loading and refreshing a cache of ingredients
@@ -37,11 +36,11 @@ public class Configuration {
     /**
      * Loads configuration from a a fixed path (src/main/resources/config.txt) and creates the cashe
      *
-     * @throws IOException
+     * @throws IOException IOException
      */
     public void loadConfiguration() throws IOException {
         if (Files.exists(p)) {
-            config = new TreeMap<>();
+            config = new TreeMap<>();  //to sort ascending
             var allLines = Files.readAllLines(p);
             for (String line : allLines) {
                 var key = line.split("#");
@@ -50,18 +49,22 @@ public class Configuration {
                 Ingredient ingredientObject = new Ingredient(ingredient[0], Integer.parseInt(ingredient[1]));
                 config.put(key[0], ingredientObject);
             }
-            System.out.println("Configuration loaded");
+            if (config.isEmpty()) {
+                System.out.println("Nothing configured");
+            } else {
+                System.out.println("Configuration loaded");
+            }
         } else {
-            System.out.println("no config file present");
+            System.out.println("No config file present");
         }
     }
 
     /**
      * Refreshes the configuration. It only refreshes after 10 seconds between two calls.
-     * @throws IOException
+     * @throws IOException IOException
      */
     public void refreshConfiguration() throws IOException {
-        //check if enough time has passed since the last successful refresh
+        //check if enough time has passed since the last refresh
         if (nextRefresh.isAfter(LocalTime.now())) {
             loadConfiguration();
             if (!config.isEmpty()) {
@@ -81,6 +84,4 @@ public class Configuration {
     public Map<String, Ingredient> getIngredients() {
         return config;
     }
-
-
 }
