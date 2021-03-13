@@ -50,7 +50,7 @@ public class SingletonDriver {
                 2 - refresh configuration
                 3 - wait 5 seconds
                 4 - print configuration
-                all other values - Exit the programme          
+                all other values - Exit the application          
                 """;
         System.out.println(options);
         System.out.println("Choose an option: ");
@@ -86,7 +86,7 @@ public class SingletonDriver {
 
     /**
      * Wait for 5 seconds
-     * @throws InterruptedException
+     * @throws InterruptedException InterruptedException
      */
     private static void waitFiveSeconds() throws InterruptedException {
         // possibility 1
@@ -94,7 +94,7 @@ public class SingletonDriver {
         Thread.sleep(5000);
         System.out.println("5 seconds passed");
 
-        //possiblity 2
+        //possibility 2
         System.out.println("Waiting...");
         TimeUnit.SECONDS.sleep(5);
         // This call to wait() lead to an IllegalMonitorStateException!!
