@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Creates an (immutable) Dog
+ *  Representation of a Dog
  *
  */
 @Getter

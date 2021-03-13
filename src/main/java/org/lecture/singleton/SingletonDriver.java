@@ -1,7 +1,6 @@
 package org.lecture.singleton;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
@@ -65,8 +64,7 @@ public class SingletonDriver {
         }
 
         //parses the valid number (int or double) into an int value
-        Double parseDouble = Double.parseDouble(option);
-        return parseDouble.intValue();
+        return ((Double) Double.parseDouble(option)).intValue();
 
 
     }
