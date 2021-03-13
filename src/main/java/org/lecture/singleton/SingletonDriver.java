@@ -1,7 +1,9 @@
 package org.lecture.singleton;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 public class SingletonDriver {
@@ -13,7 +15,7 @@ public class SingletonDriver {
             switch (getOption()) {
                 case 1 -> config.loadConfiguration();
                 case 2 -> config.refreshConfiguration();
-                case 3 -> passTime();
+                case 3 -> waitFiveSeconds();
                 case 4 -> printIngredients();
                 default -> {
                     System.out.println("Exiting");
@@ -86,10 +88,18 @@ public class SingletonDriver {
      * Wait for 5 seconds
      * @throws InterruptedException
      */
-    private static void passTime() throws InterruptedException {
+    private static void waitFiveSeconds() throws InterruptedException {
+        // possibility 1
         System.out.println("Waiting...");
         Thread.sleep(5000);
         System.out.println("5 seconds passed");
 
+        //possiblity 2
+        System.out.println("Waiting...");
+        TimeUnit.SECONDS.sleep(5);
+        // This call to wait() lead to an IllegalMonitorStateException!!
+        // TimeUnit.SECONDS.wait(5);
+
+        System.out.println("5 seconds passed");
     }
 }
