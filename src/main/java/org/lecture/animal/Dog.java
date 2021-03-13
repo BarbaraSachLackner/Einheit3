@@ -3,9 +3,9 @@ package org.lecture.animal;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +26,7 @@ public class Dog {
     private final double weight;
     private final String sound;
     private final String walk;
-    private final List<String> owners;
+    private final List<String> owners = new ArrayList<>();
 
     /**
      *
@@ -49,8 +49,8 @@ public class Dog {
         this.name = name;
         this.height = height;
         this.weight = weight;
-        this.owners = owners;
         this.sound = sound;
         this.walk = walk;
+        this.owners.addAll(owners);
     }
 }
