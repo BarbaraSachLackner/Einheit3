@@ -87,10 +87,10 @@ public class SingletonDriver {
      * @throws InterruptedException InterruptedException
      */
     private static void waitFiveSeconds() throws InterruptedException {
-        // possibility 1
-        System.out.println("Waiting...");
-        Thread.sleep(5000);  //expected: milliseconds
-        System.out.println("5 seconds passed");
+        // possibility 1 - "old" version
+        //   System.out.println("Waiting...");
+        //   Thread.sleep(5000);  //expected: milliseconds
+        //   System.out.println("5 seconds passed");
 
         //possibility 2
         System.out.println("Waiting...");
